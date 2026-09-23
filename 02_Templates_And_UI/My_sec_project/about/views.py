@@ -16,3 +16,11 @@ def collegeinfo(request):
     ]
     return render(request, "webpage/index.html", context={'std' : student})
 
+
+def subject_page(request):
+    return render(request, "webpage/subject.html")
+
+def contact_page(request):
+    return render(request, "webpage/contact.html")
+
+
