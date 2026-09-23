@@ -28,7 +28,9 @@
     <td>{{forloop.counter}}</td>
     <td>{{s.name}}</td>
     <td>{{s.age}}</td>
-    <td>
+    <td style="background: {% if s.age < 18 %}orange{% else %}lime{% endif %};">
+       
+
         {%if s.age >= 18%}
         Yup 👍
         {%else%}
