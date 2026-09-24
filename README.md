@@ -4,16 +4,20 @@ This repository contains my Django learning journey, practice projects, and expe
 
 ## Repository Structure
 
-- `01_First_Request_Response/` - beginner Django exercises
+- `01_First_Request_Response/` - beginner Django request/response practice
   - `My_first_project/` - first Django project
+- `02_Templates_And_UI/` - template rendering and UI-focused practice
+  - `My_sec_project/` - second Django project
 
 ## Getting Started
 
 1. Clone this repository.
-2. Move to a Django project folder (example below):
+2. Move to a Django project folder (choose one):
 
 ```bash
-cd /home/runner/work/Django-Learning/Django-Learning/01_First_Request_Response/My_first_project
+cd 01_First_Request_Response/My_first_project
+# or
+cd 02_Templates_And_UI/My_sec_project
 ```
 
 3. (Recommended) Create and activate a virtual environment.
