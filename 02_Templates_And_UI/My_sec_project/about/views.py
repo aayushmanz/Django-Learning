@@ -18,10 +18,12 @@ def collegeinfo(request):
 
 
 def subject_page(request):
+    
     context = {"page" : "subject"}
     return render(request, "webpage/subject.html", context)
 
 def contact_page(request):
+
     context = {"page" : "contact"}
     return render(request, "webpage/contact.html", context)
 
