@@ -22,8 +22,8 @@ from about.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", welcome, name='welcome'),
-    path("about/", collegeinfo, name='about'),
+    # path("", welcome, name='welcome'),
+    path("", collegeinfo, name='about'),
     path('contact/', contact_page, name='contact'),
     path('subject/', subject_page, name='subject'),
     
