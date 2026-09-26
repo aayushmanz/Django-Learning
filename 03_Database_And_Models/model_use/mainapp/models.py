@@ -12,5 +12,8 @@ class student(models.Model):
     email = models.EmailField()
     address = models.TextField(null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
     
