@@ -24,7 +24,7 @@ from mainapp.models import student
 
 ## 🛠️ 2. CRUD Operations Cheat Sheet
 
-### 🟢 CREATE (डेटाबेस में नया डेटा डालना)
+### 🟢 CREATE 
 **Method 1: Create and Save separately (Standard way)**
 ```python
 new_stu = student(name='Rohit', email='rohit@gmail.com', age=20, address='Jaipur', rollno=45)
@@ -36,7 +36,7 @@ new_stu.save() # .save() is mandatory here!
 student.objects.create(name='Sanjay Singh', email='sanjay@gmail.com', age=15, address='Dubai', rollno=33)
 ```
 
-### 🔵 READ (डेटाबेस से डेटा निकालना)
+### 🔵 READ 
 **Get ALL data (Returns a QuerySet/List of all students):**
 ```python
 student.objects.all()
@@ -58,7 +58,7 @@ nineteen_yr_olds = student.objects.filter(age=19)
 local_students = student.objects.filter(address__icontains='chittorgarh')
 ```
 
-### 🟡 UPDATE (डेटाबेस में मौजूद डेटा को बदलना)
+### 🟡 UPDATE 
 **Step 1:** First, fetch the exact student you want to update.
 **Step 2:** Change the value.
 **Step 3:** Save the changes.
@@ -74,7 +74,7 @@ stu_to_update.address = 'New Address, Chittorgarh'
 stu_to_update.save()
 ```
 
-### 🔴 DELETE (डेटाबेस से रिकॉर्ड उड़ाना)
+### 🔴 DELETE 
 **Step 1:** Fetch the student.
 **Step 2:** Call `.delete()` function.
 ```python
