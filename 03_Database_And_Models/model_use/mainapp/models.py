@@ -33,7 +33,7 @@ class car(models.Model):
      
 
 
-     
+
     # CREATE : 
 
      c1 = car(brand_name = "TATA", model_name = "siara", speed = "180")
@@ -100,6 +100,21 @@ class car(models.Model):
 
      car.objects.filter(id = 1).update(brand_name = "BMW") # thats it
 
+
+     
+
+     # DELETE :
+     # we can use filter and get function for delete 
+     
+     # use get :
+     car.objects.get(id = 1).delete()
+
+
+     # use filter :
+     car.objects.filter(id = 1).delete()
+
+     # if we want to delete all data :
+     car.objects.all().delete()
 
    """
     
