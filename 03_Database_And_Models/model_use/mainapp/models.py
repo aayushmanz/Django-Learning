@@ -13,7 +13,18 @@ class student(models.Model):
     address = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+            return self.name
+
+class car(models.Model):
+    brand_name = models.CharField(max_length=30)
+    model_name = models.CharField(max_length=30)
+    speed = models.IntegerField(default=50)
+
+    def __str__(self):
+         return self.brand_name + " " + self.model_name
+
+
+    
 
 
     
