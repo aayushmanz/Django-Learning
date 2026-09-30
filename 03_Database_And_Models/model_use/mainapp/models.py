@@ -28,6 +28,7 @@ class car(models.Model):
 
      from mainapp.models import * 
      
+     
      # We are using the CRUD functions :
 
      
