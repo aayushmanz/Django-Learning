@@ -15,6 +15,12 @@ def recipes(request):
      print(recipe_name)
      print(recipe_desc)
 
+     recipe.objects.create(
+     recipe_name = recipe_name,
+     recipe_desc = recipe_desc,
+     recipe_img = recipe_image
+     )
+
      return redirect('/recipe/')
 
 

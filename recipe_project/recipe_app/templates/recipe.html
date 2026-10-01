@@ -3,42 +3,44 @@
 {% block start %}
 
 <div class="container mt-5">
-    <form class = 'col-6 mx-auto card p-3 shadow-lg' method="post" enctype="multipart/form-data">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <h3>ADD RECIPE :</h3>
         <div class="mb-3">
-            <label  class="form-label">Recipe Name : </label>
+            <label class="form-label">Recipe Name : </label>
             <input type="text" required class="form-control" name="recipe_name">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Recipe Description : </label>
-            <textarea  class="form-control" name="recipe_desc" id=""></textarea>
+            <textarea class="form-control" name="recipe_desc" id=""></textarea>
         </div>
         <div class="mb-3 ">
             <label class="form-label">Recipe Image : </label>
             <input type="file" class="form-control" name="recipe_image">
         </div>
         <button type="submit" class="btn btn-success">Add Recipe</button>
-    </form>    
-    <table>
-       <thead> 
-        <tr>
-            <th>No.</th>
-            <th>Recipe Name</th>
-            <th>Recipe Description</th>
-            <th>Recipe Image</th>
-        </tr>
-       </thead> 
-       <tbody>
-        {% for i in recipe %}
-        <tr>
-            <th>{{forloop.counter}}</th>
-            <td>{{i.recipe_name}}</td>
-            <td>{{i.recipe_desc}}</td>
-            <td>{{i.recipe_desc}}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
+    </form>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Recipe Name</th>
+                <th>Recipe Description</th>
+                <th>Recipe Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in recipe %}
+            <tr>
+                <th>{{forloop.counter}}</th>
+                <td>{{i.recipe_name}}</td>
+                <td>{{i.recipe_desc}}</td>
+                <td>
+                    <img src="{{ i.recipe_image.url }}" style="height: 100px;">
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </div>
 {% endblock start %}

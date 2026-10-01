@@ -122,6 +122,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+import os  # Agar file ke top par import nahi hai toh yahan likh de
+
+# Base url jahan se image browser mein serve hogi
+MEDIA_URL = '/media/'
+
+# Folder jahan teri images physically save hongi (Sir ne 'public/static' folder ka path bataya hoga)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public/static')
+
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
