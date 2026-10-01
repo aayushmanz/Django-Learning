@@ -1,12 +1,14 @@
 {% extends "snippet.html" %}
 
 {% block start %}
+
 <div class="container mt-5">
-    <form class = 'col-6 mx-auto card p-3 shadow-lg' method="post">
+    <form class = 'col-6 mx-auto card p-3 shadow-lg' method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <h3>ADD RECIPE :</h3>
         <div class="mb-3">
             <label  class="form-label">Recipe Name : </label>
-            <input type="text" class="form-control" name="recipe_name">
+            <input type="text" required class="form-control" name="recipe_name">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Recipe Description : </label>
@@ -14,7 +16,7 @@
         </div>
         <div class="mb-3 ">
             <label class="form-label">Recipe Image : </label>
-            <input type="file" class="form-control" name="recipe_img">
+            <input type="file" class="form-control" name="recipe_image">
         </div>
         <button type="submit" class="btn btn-success">Add Recipe</button>
     </form>
