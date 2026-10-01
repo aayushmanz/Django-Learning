@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import recipe
+
 
 def recipes(request):
 
@@ -13,6 +15,14 @@ def recipes(request):
      print(recipe_name)
      print(recipe_desc)
 
+     return redirect('/recipe/')
 
-   return render(request, 'recipe.html')
+
+   query_set = recipe.objects.all()
+   context = {'recipe' : query_set}
+   return render(request, 'recipe.html', context)
+
+
+
+
 # Create your views here.
