@@ -14,7 +14,10 @@ def recipes(request):
 
      print(recipe_name)
      print(recipe_desc)
-
+     
+     
+     
+     # for creating the object structure for table
      recipe.objects.create(
      recipe_name = recipe_name,
      recipe_desc = recipe_desc,
@@ -23,7 +26,7 @@ def recipes(request):
 
      return redirect('/recipe/')
 
-
+   # taking object to backend to front-end through context
    query_set = recipe.objects.all()
    context = {'recipe' : query_set}
    return render(request, 'recipe.html', context)
