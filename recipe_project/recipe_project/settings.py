@@ -122,13 +122,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-import os  # Agar file ke top par import nahi hai toh yahan likh de
-
-# Base url jahan se image browser mein serve hogi
+# URL used by the browser for uploaded files.
 MEDIA_URL = '/media/'
 
-# Folder jahan teri images physically save hongi (Sir ne 'public/static' folder ka path bataya hoga)
-MEDIA_ROOT = os.path.join(BASE_DIR, 'public/static')
+# Files uploaded through ImageField are stored here. Django creates the
+# recipe_images subdirectory when the first image is saved.
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Email

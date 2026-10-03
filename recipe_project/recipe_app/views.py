@@ -4,27 +4,18 @@ from .models import recipe
 
 def recipes(request):
 
-   if request.method == "POST": 
-     data = request.POST
-     
+   if request.method == "POST":
+     recipe_image = request.FILES.get("recipe_img")
+     recipe_name = request.POST.get("recipe_name")
+     recipe_desc = request.POST.get("recipe_desc")
 
-     recipe_image = request.FILES.get('recipe_img')
-     recipe_name = data.get("recipe_name")
-     recipe_desc = data.get("recipe_desc")
-
-     print(recipe_name)
-     print(recipe_desc)
-     
-     
-     
-     # for creating the object structure for table
      recipe.objects.create(
-     recipe_name = recipe_name,
-     recipe_desc = recipe_desc,
-     recipe_img = recipe_image
+         recipe_name=recipe_name,
+         recipe_desc=recipe_desc,
+         recipe_img=recipe_image,
      )
 
-     return redirect('/recipe/')
+     return redirect("recipe")
 
    # taking object to backend to front-end through context
    query_set = recipe.objects.all()

@@ -16,7 +16,7 @@
         </div>
         <div class="mb-3 ">
             <label class="form-label">Recipe Image : </label>
-            <input type="file" class="form-control" name="recipe_image">
+            <input type="file" class="form-control" name="recipe_img">
         </div>
         <button type="submit" class="btn btn-success">Add Recipe</button>
     </form>
@@ -36,7 +36,9 @@
                 <td>{{i.recipe_name}}</td>
                 <td>{{i.recipe_desc}}</td>
                 <td>
-                    <img src="{{ i.recipe_image.url }}" style="height: 100px;">
+                    {% if i.recipe_img %}
+                        <img src="{{ i.recipe_img.url }}" alt="{{ i.recipe_name }}" style="height: 100px;">
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}
