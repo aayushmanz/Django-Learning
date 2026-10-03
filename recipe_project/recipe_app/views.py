@@ -15,7 +15,7 @@ def recipes(request):
          recipe_img=recipe_image,
      )
 
-     return redirect("recipe")
+     return redirect("/recipe/")
 
    # taking object to backend to front-end through context
    query_set = recipe.objects.all()
@@ -23,6 +23,12 @@ def recipes(request):
    return render(request, 'recipe.html', context)
 
 
+def delete_recipe(request, id):
+  query = recipe.objects.get(id = id)
+  query.delete()
+  
+  return redirect('/recipe/')
 
+  
 
 # Create your views here.
