@@ -29,6 +29,23 @@ def delete_recipe(request, id):
   
   return redirect('/recipe/')
 
+
+def search_recipe(request, id):
+  query = recipe.objects.get(id = id)
+  
+  if query.method == 'POST':
+    data = request.POST
+    
+    query.recipe_name = data.get('recipe_name')
+    query.recipe_desc = data.get('recipe_desc')
+    
+    if recipe_image:
+      query.recipe_image = request.FILES.get('recipe_image')
+      
+    query.save()  
+  
+  return redirect('/recipe/')
+
   
 
 # Create your views here.
