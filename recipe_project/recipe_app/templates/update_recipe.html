@@ -8,11 +8,11 @@
         <h3>Update Recipe</h3>
         <div class="mb-3">
             <label class="form-label">Recipe Name : </label>
-            <input type="text" required class="form-control" name="recipe_name">
+            <input type="text" required class="form-control" name="recipe_name" value='{{recipe.recipe_name}}'>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Recipe Description : </label>
-            <textarea class="form-control" name="recipe_desc" id=""></textarea>
+            <textarea class="form-control" name="recipe_desc" id="">{{recipe.recipe_desc}}</textarea>
         </div>
         <div class="mb-3 ">
             <label class="form-label">Recipe Image : </label>

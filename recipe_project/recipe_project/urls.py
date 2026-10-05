@@ -23,7 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('recipe/',recipes, name="recipe"),
-    path('delete-recipe/<id>/', delete_recipe, name = 'delete_recipe')
+    path('delete-recipe/<id>/', delete_recipe, name = 'delete_recipe'),
+    path('update-recipe/<id>/',update_recipe, name = 'update_recipe' ),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

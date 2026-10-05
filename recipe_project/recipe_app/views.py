@@ -30,21 +30,24 @@ def delete_recipe(request, id):
   return redirect('/recipe/')
 
 
-def search_recipe(request, id):
-  query = recipe.objects.get(id = id)
+def update_recipe(request, id):
+  queries = recipe.objects.get(id = id)
   
-  if query.method == 'POST':
+  if request.method == 'POST':
     data = request.POST
     
-    query.recipe_name = data.get('recipe_name')
-    query.recipe_desc = data.get('recipe_desc')
+    queries.recipe_name = data.get('recipe_name')
+    queries.recipe_desc = data.get('recipe_desc')
     
-    if recipe_image:
-      query.recipe_image = request.FILES.get('recipe_image')
+    if request.FILES.get('recipe_image'):
+      queries.recipe_img = request.FILES.get('recipe_image')
       
-    query.save()  
+    queries.save()  
   
-  return redirect('/recipe/')
+    return redirect('/recipe/')
+  context = {'recipe': queries}
+  return render(request, 'update_recipe.html', context)
+
 
   
 
