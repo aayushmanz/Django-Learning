@@ -30,6 +30,7 @@ def delete_recipe(request, id):
   return redirect('/recipe/')
 
 
+
 def update_recipe(request, id):
   queries = recipe.objects.get(id = id)
   
