@@ -14,11 +14,18 @@ def recipes(request):
          recipe_desc=recipe_desc,
          recipe_img=recipe_image,
      )
+     
+     
 
      return redirect("/recipe/")
 
    # taking object to backend to front-end through context
    query_set = recipe.objects.all()
+   
+   if request.GET.get("search"):
+          # print(request.GET.get("search"))
+          query_set = query_set.filter(recipe_name__icontains = request.GET.get('search'))
+   
    context = {'recipe' : query_set}
    return render(request, 'recipe.html', context)
 
