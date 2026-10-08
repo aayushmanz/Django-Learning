@@ -13,6 +13,7 @@ def recipes(request):
          recipe_name=recipe_name,
          recipe_desc=recipe_desc,
          recipe_img=recipe_image,
+         
      )
      
      
