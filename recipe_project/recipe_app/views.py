@@ -54,6 +54,7 @@ def update_recipe(request, id):
     queries.save()  
   
     return redirect('/recipe/')
+  
   context = {'recipe': queries}
   return render(request, 'update_recipe.html', context)
 
