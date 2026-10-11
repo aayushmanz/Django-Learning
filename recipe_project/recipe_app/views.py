@@ -73,6 +73,15 @@ def login_page(request):
 
 
 def register_page(request):
+  
+  if request.method == "POST":
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    
+    
+    print("this is registration !")
+    print(username)
+    print(password)
   return render(request, "register.html")  
 
 # Create your views here.

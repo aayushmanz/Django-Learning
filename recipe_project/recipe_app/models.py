@@ -15,3 +15,10 @@ class login(models.Model):
     username = models.CharField(max_length=30, null=False)
     password = models.CharField(max_length=40)
     
+    
+    
+class register(models.Model):
+    
+    username = models.CharField(max_length=30, null=False)
+    password = models.CharField(max_length=40)    
+    
