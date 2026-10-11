@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import recipe, login
+from .models import recipe
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 
 def recipes(request):
@@ -42,6 +43,8 @@ def delete_recipe(request, id):
 
 
 
+
+
 def update_recipe(request, id):
   queries = recipe.objects.get(id = id)
   
@@ -63,16 +66,32 @@ def update_recipe(request, id):
 
 
 
+
+
 def login_page(request):
    if request.method == 'POST':
      username = request.POST.get('username')
      password = request.POST.get('password')
+     
+     check_user = authenticate(request, username = username, password=password)
+     
+     
+     if check_user != None:
+       login(request, check_user)
+       print('U r verified !')
+       
+     else:
+       print('invaild user name and password !')  
+       
      
      print(username)
      print(password)
   
    return render(request, "login.html")
  
+
+
+
 
 
 def register_page(request):
@@ -94,16 +113,13 @@ def register_page(request):
     
     else:  
     
-      new_user = User.objects.create(
+        new_user = User.objects.create_user(
             username = username,
             password = password
-        )
+          )
       
-      new_user.save()
-     
-     
-    
-    print("congrates U r our new user, Mr" , new_user.username)
+        new_user.save()
+        print("congrates U r our new user, Mr" , new_user.username)
     
   return render(request, "register.html")  
 
