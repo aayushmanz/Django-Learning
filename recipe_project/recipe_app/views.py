@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from .models import recipe
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 
+@ login_required(login_url='/login/')
 def recipes(request):
 
    if request.method == "POST":
@@ -34,7 +36,7 @@ def recipes(request):
    context = {'recipe' : query_set}
    return render(request, 'recipe.html', context)
 
-
+@ login_required(login_url='/login/')
 def delete_recipe(request, id):
   query = recipe.objects.get(id = id)
   query.delete()
@@ -44,7 +46,7 @@ def delete_recipe(request, id):
 
 
 
-
+@ login_required(login_url='/login/')
 def update_recipe(request, id):
   queries = recipe.objects.get(id = id)
   
@@ -79,6 +81,7 @@ def login_page(request):
      if check_user != None:
        login(request, check_user)
        print('U r verified !')
+       return redirect('/recipe/')
        
      else:
        print('invaild user name and password !')  
