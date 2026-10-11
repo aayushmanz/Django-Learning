@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import recipe
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 
@@ -125,5 +125,11 @@ def register_page(request):
         print("congrates U r our new user, Mr" , new_user.username)
     
   return render(request, "register.html")  
+
+
+
+def log_out(request):
+  logout(request)
+  return redirect('/login/')
 
 # Create your views here.
