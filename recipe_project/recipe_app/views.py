@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import recipe
+from .models import recipe, login
 
 
 def recipes(request):
@@ -61,7 +61,14 @@ def update_recipe(request, id):
 
 
 def login_page(request):
-  return render(request, "login.html")
+   if request.method == 'POST':
+     username = request.POST.get('username')
+     password = request.POST.get('password')
+     
+     print(username)
+     print(password)
+  
+   return render(request, "login.html")
  
 
 

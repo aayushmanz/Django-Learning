@@ -7,7 +7,8 @@
   </div>
 
   <!-- Change the action attribute to your backend authentication endpoint -->
-  <form action="/login" method="POST" class="login-form">
+  <form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
     <div class="form-group">
       <label for="username">Username or Email</label>
       <input
