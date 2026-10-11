@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import recipe, login
+from django.contrib.auth.models import User
 
 
 def recipes(request):
@@ -8,6 +9,8 @@ def recipes(request):
      recipe_image = request.FILES.get("recipe_img")
      recipe_name = request.POST.get("recipe_name")
      recipe_desc = request.POST.get("recipe_desc")
+     
+     
 
      recipe.objects.create(
          recipe_name=recipe_name,
@@ -82,6 +85,26 @@ def register_page(request):
     print("this is registration !")
     print(username)
     print(password)
+    
+    
+    if User.objects.filter(username = username).exists():
+      
+      print('user already exist try different username !')
+    
+    
+    else:  
+    
+      new_user = User.objects.create(
+            username = username,
+            password = password
+        )
+      
+      new_user.save()
+     
+     
+    
+    print("congrates U r our new user, Mr" , new_user.username)
+    
   return render(request, "register.html")  
 
 # Create your views here.
