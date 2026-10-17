@@ -1,4 +1,4 @@
-# Django Learning.
+# Django Learning
 
 A hands-on Django practice repository organized into progressive modules, moving from core request/response concepts to templates, models, and shell workflows.
 
