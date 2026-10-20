@@ -139,5 +139,5 @@ MAILERS = {
     },
 }
 
-# Session Cookie
+# Session Cookie :
 SESSION_COOKIE_AGE = 1800
