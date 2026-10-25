@@ -13,4 +13,4 @@ db.sqlite3
 .env
 
 # VS Code settings
-.vscode/
+.vscode/ 
